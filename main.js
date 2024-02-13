@@ -14,14 +14,15 @@ element.textContent=message;
 const init=()=> {
 gameHealth=100;
 gameOver=false;
-randomGuessNumber=(Math.trunc(Math.random()*10)+1;
+randomGuessNumber=Math.trunc(Math.random()*10)+1;
 updateData(gameHealthNumberElement,"100%");
 updateData(gameFeedbackElement,"What is your guess?");
 updateData(gameNumberElement,"?");
 gameGuessElement.value="";
-gameHealthElement.style.background="green";
+gameHealthElement.style.background="black";
     gameHealthElement.style.width=`${gameHealth}%`;
 };
+
 init();
 const playGame=()=>{
     const guess=Number(gameGuessElement.value);
@@ -35,12 +36,12 @@ const playGame=()=>{
         }
         else if (guess!=randomGuessNumber) {
             if(gameHealth>20) {
-                updateData(gameFeedbackElement,guess>randomGuessNumber ? "Try a lower number!": "Try a higher number!");
+                updateData(gameFeedbackElement, guess > randomGuessNumber ? "Try a lower number!": "Try a higher number!");
           gameHealth-=20;
           gameHealthElement.style.width=`${gameHealth}%`;
 updateData(gameHealthNumberElement,`${gameHealth}%`);
 if(gameHealth<50) {
-    gameHealthElement.style.background="red";
+    gameHealthElement.style.background="pink";
 }
             } else {
                 updateData(gameFeedbackElement,"Game over!");

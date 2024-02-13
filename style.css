@@ -14,6 +14,7 @@ body {
    place-items: center; 
    height: 100vh;
    line-height: 1.5;
+   text-shadow:2px 2px #ff81c1;
 }
 .game {
     max-width: 440px;
@@ -21,19 +22,21 @@ body {
     align-items: center;
     gap: 50px;
     padding: 75px 25px;
-    background: url("images/_ Random _.jpeg");
+    background-image: url(Simpsons-Background.jpg);
     background-size: cover;
     text-align: center;
 }
 
-.simpson{
-    background: url("/images/png-clipart-homer-simpson-drooling-donuts-food-donut-stack-food-gums-thumbnail-removebg-preview.png");
+.game-health{
+    
+    position: relative;
     display: grid;
    place-items: start;
     width:100px;
     height:80px;
     background-size: cover;
     margin-top:-50px;
+    border: 2px solid #ff81c1;
 }
 .game-health {
     position: relative;
@@ -41,8 +44,8 @@ body {
     height: 25px;
     border: 2px solid #fff;
   margin-left: auto;
-    margin-top: -30px;
 }
+
 .game-health-number {
     position: absolute;
     top: 50%;
@@ -67,11 +70,12 @@ body {
     font-size:32px;
     color: #FED90F;
     margin: 30px auto;
-    background: url("/images/donut.png");
+    background: url("donut.png");
     background-size: cover;   
 }
 .game-feedback {
     font-size: 19px;
+    color:#ff81c1;
 }
 .game footer {
     display: grid;
