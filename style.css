@@ -1,110 +1,162 @@
-@font-face {
-    font-family: 'Homer Simpson Revised';
-    src: url('https://fonts.cdnfonts.com/css/homer-simpson-revised');
-}
-*{
+@import url('https://fonts.cdnfonts.com/css/homer-simpson-revised');
+
+* {
     margin: 0;
-    padding:0;
-    box-sizing: border-box;                          
+    padding: 0;
+    box-sizing: border-box;
 }
+
 body {
-    font-family: 'Homer Simpson Revised',sans-serif;
+    font-family: 'Homer Simpson Revised', sans-serif;
     color: #FED90F;
-   display: grid;
-   place-items: center; 
-   height: 100vh;
-   line-height: 1.5;
-   text-shadow:2px 2px #ff81c1;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background-color: #0f0f0f;
+    text-shadow: 2px 2px #ff81c1;
 }
+
 .game {
     max-width: 440px;
     display: grid;
-    align-items: center;
-    gap: 50px;
-    padding: 75px 25px;
-    background-image: url(Simpsons-Background.jpg);
+    gap: 40px;
+    padding: 60px 30px;
+    background-image: url('Simpsons-Background.jpg');
     background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     text-align: center;
+    border: 4px solid #ff81c1;
 }
 
-.game-health{
-    
-    position: relative;
-    display: grid;
-   place-items: start;
-    width:100px;
-    height:80px;
-    background-size: cover;
-    margin-top:-50px;
-    border: 2px solid #ff81c1;
-}
+/* HEALTH BAR */
 .game-health {
     position: relative;
     width: 200px;
     height: 25px;
-    border: 2px solid #fff;
-  margin-left: auto;
+    border: 2px solid #ff81c1; 
+    background-color: #2a2a2a; 
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.game-health-bar {
+    height: 100%;
+    width: 100%;
+    background-color: #FED90F; 
+    transition: width 0.3s ease;
 }
 
 .game-health-number {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
-    font-size: 15px;
-    color:#9c5b01;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    color: #fff;
+    text-shadow: 1px 1px 2px #000;
 }
-.game-health-bar {
-    width:100%;
-    height:100%;
-    background-color: #ff81c1;
-}
+
+/* TITLE & FEEDBACK */
 .game-title {
-    font-size:24px;
+    font-size: 26px;
+    color: #FFF;
+    text-shadow: 3px 3px #000;
 }
-.game-number {
-    display: grid;
-    place-items:center;
-    width:75px;
-    height:75px;
-    font-size:32px;
-    color: #FED90F;
-    margin: 30px auto;
-    background: url("donut.png");
-    background-size: cover;   
-}
+
 .game-feedback {
-    font-size: 19px;
-    color:#ff81c1;
+    font-size: 20px;
+    color: #fff;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    text-shadow: 1px 1px 2px #000; 
 }
+
+/* NUMBER DISPLAY */
+.game-number {
+    width: 100px;
+    height: 100px;
+    font-size: 20px;
+    color: #FED90F;
+    margin: 20px auto;
+    background: url("donut.png") no-repeat calc(50% + 10px) center;
+    background-size: contain;
+    border-radius: 50%;
+    text-shadow: 2px 2px #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    padding-left: 10px; /* balance the shift */
+}
+
+
+/* INPUT & BUTTONS */
 .game footer {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap:10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
 }
-input, button {
+
+input,
+button {
     background: none;
-    font:inherit;
+    font: inherit;
     color: inherit;
     border: none;
-    border-radius:15px;
+    border-radius: 15px;
+    outline: none;
+    transition: all 0.3s ease;
 }
-.game-guess {
-    grid-column: 1/-1;
-    padding: 5px;
-    border: 2px solid #fff;
-}
-.game-button {
-    padding: 10px 15px;
-    box-shadow: 5px 5 px #beae7d;
-    cursor: pointer;
-    font-size: 17px;
-    color:#9c5b01;
-}
-.game-button-play {
-    background-color: #ff81c1;
 
+.game-guess {
+    grid-column: 1 / -1;
+    padding: 10px;
+    border: 2px solid #fff;
+    font-size: 18px;
+    text-align: center;
+    background-color: rgba(255,255,255,0.1);
+    color: #fff;
 }
-.game-button-reset {
+
+/* BUTTONS */
+.game-button {
+    padding: 10px;
+    font-size: 18px;
     background-color: #ff81c1;
+    color: #9c5b01;
+    border: 2px solid #fff;
+    box-shadow: 3px 3px 0 #fff;
+    cursor: pointer;
+    transition: transform 0.2s ease;
 }
+
+.game-button:hover {
+    transform: scale(1.05);
+    background-color: #ffc6e3;
+    color: #000;
+}
+
+.game-button:active {
+    transform: scale(0.98);
+}
+
+.game-gif {
+    margin-top: 10px;
+}
+
+.gif-img {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+/* @keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.game-number {
+    animation: spin 5s linear infinite;
+} */
